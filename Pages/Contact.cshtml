@@ -20,7 +20,7 @@
                 Message = message
             }; 
             string contactjson = System.Text.Json.JsonSerializer.Serialize(contact);
-            System.IO.File.WriteAllText(System.IO.Directory.GetCurrentDirectory() + @"\contacts.json", contactjson);
+            System.IO.File.WriteAllText(System.IO.Directory.GetCurrentDirectory() + @"\data\contacts.json", contactjson);
             <p>
                 You entered: <br />
                 Name: @name <br />
