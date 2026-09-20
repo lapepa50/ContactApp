@@ -6,6 +6,10 @@ namespace ContactApp.Pages
 {
     public class ContactModel : PageModel
     {
+        public object Name { get; internal set; }
+        public object Email { get; internal set; }
+        public object Message { get; internal set; }
+
         public void OnGet()
         {
         }

@@ -32,11 +32,14 @@
         {
             <form method="post" action="">
                 Name:<br />
-                <input type="text" name="Name" value="" /><br />
+                <input asp-for="Name", class="form-control" /><br />
+                <span asp-validation-for="Name" class="text-danger"></span>
                 Email:<br />
-                <input type="text" name="Email" value="" /><br />
+                <input asp-for="Email", class="form-control" /><br />
+                <span asp-validation-for="Email" class="text-danger"></span>
                 Message:<br />
-                <input type="text" name="Message" value="" /><br /><br />
+                <input asp-for="Message", class="form-control" /><br />
+                <span asp-validation-for="Message" class="text-danger"></span><br /><br />
                 
                 <input type="submit" value="Submit" class="submit" />
             </form>
