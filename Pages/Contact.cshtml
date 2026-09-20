@@ -1,0 +1,46 @@
+﻿@page
+@model ContactApp.Pages.ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<html>
+<body>
+    @{
+        // Form layout provided by https://www.w3schools.com/asp/webpages_forms.asp 
+            if (Request.Method == "POST")
+            {
+                string name = Request.Form["Name"].ToString();
+                string email = Request.Form["Email"].ToString();
+                string message = Request.Form["Message"].ToString();
+            Contact contact = new Contact
+            {
+                Name = name,
+                Email = email,
+                Message = message
+            }; 
+            string contactjson = System.Text.Json.JsonSerializer.Serialize(contact);
+            System.IO.File.WriteAllText(System.IO.Directory.GetCurrentDirectory() + @"\contacts.json", contactjson);
+            <p>
+                You entered: <br />
+                Name: @name <br />
+                Email: @email <br />
+                Message: @message <br />
+            </p>
+        }
+        else
+        {
+            <form method="post" action="">
+                Name:<br />
+                <input type="text" name="Name" value="" /><br />
+                Email:<br />
+                <input type="text" name="Email" value="" /><br />
+                Message:<br />
+                <input type="text" name="Message" value="" /><br /><br />
+                
+                <input type="submit" value="Submit" class="submit" />
+            </form>
+        }
+    }
+</body>
+</html>
